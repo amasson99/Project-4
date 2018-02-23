@@ -1,3 +1,11 @@
+/*******************************************************************
+* Proj4.java
+* <Alex Masson / Section B/ Thursday 4:30 - 6:30>
+*
+* This is a class grade calculator
+*******************************************************************/
+
+
 import java.util.*;
 
 public class Proj4{
