@@ -18,8 +18,8 @@ public class Proj4{
     int [] exam3 = new int[MAX];
     int [] finalExam = new int[MAX];
     double [] average1 = new double[MAX];
-    double [] average2 = new double[MAX];
-    double [] average3 = new double[MAX];
+    double average2 = 0;
+    double average3 = 0;
     int a = 0;
     int b = 0;
     int c = 0;
@@ -49,7 +49,7 @@ public class Proj4{
                 break;
               }//end if
             }//end while
-          System.out.print("Please enter the score for exam 2 : ");
+          System.out.print("Please enter the score for exam 2 :");
             exam2 [i]  = Integer.parseInt(in.nextLine());
             while(true){
               if (exam2[i] > 50 || exam2[i]<0){
@@ -100,14 +100,19 @@ for (int i = 0; i < count; i++){
   average1[i] = ((exam1[i]+exam2[i]+exam3[i]+finalExam[i])/250.0)*100;
   if (average1[i] <= 100.0 && average1[i]>=90.0){
     letterGrade[i] = "A";
+    a++;
   } else if (average1[i] <= 89.9 && average1[i]>=80.0){
     letterGrade[i] = "B";
+    b++;
   } else if (average1[i] <= 79.9 && average1[i]>=70.0){
     letterGrade[i] = "C";
+    c++;
   } else if (average1[i] <= 69.9 && average1[i]>=60.0){
     letterGrade[i] = "D";
+    d++;
   } else if (average1[i] <= 59.9 && average1[i]>=0.0){
     letterGrade[i] = "F";
+    f++;
   }
 }
 
@@ -129,6 +134,29 @@ while(true){
 }
 
 System.out.println("***Class Summary***");
+          System.out.println("Total number of Scores: " + count);
+          System.out.println("\tTotal number of A's: " + a);
+          System.out.println("\tTotal number of B's: " + b);
+          System.out.println("\tTotal number of C's: " + c);
+          System.out.println("\tTotal number of D's: " + d);
+          System.out.println("\tTotal number of F's: " + f);
+          System.out.println("");
+
+
+System.out.println("Individual grade percentages...");
+
+          System.out.printf("\tA: %.1f\n",((double)a/count)*100);
+          System.out.printf("\tB: %.1f\n",((double)b/count)*100);
+          System.out.printf("\tC: %.1f\n",((double)c/count)*100);
+          System.out.printf("\tD: %.1f\n",((double)d/count)*100);
+          System.out.printf("\tF: %.1f\n",((double)f/count)*100);
+          System.out.println("");
+for (int i = 0; i < count; i++){
+  average2 += average1[i];
+}
+average3 = average2/(double)count;
+System.out.printf("Average score = %.1f", average3);
+System.out.print("%");
 
     in.close();
   }//end main
