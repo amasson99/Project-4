@@ -13,19 +13,22 @@ public class Proj4{
 
     Scanner in = new Scanner(System.in);
 
-    final int MAX = 50;
+    final int STUDENTLIMIT = 50;
+    final int EXAM50 = 50;
+    final int EXAM100 = 100;
+    final int NUMEXAMS = 4;//only declared because its required in the rubric
 
-    String [] studentName = new String[MAX];
-    String [] parts = new String[MAX];
-    String [] part1 = new String[MAX];
-    String [] part2 = new String[MAX];
-    String [] wid = new String[MAX];
-    String [] letterGrade = new String[MAX];
-    int [] exam1 = new int[MAX];
-    int [] exam2 = new int[MAX];
-    int [] exam3 = new int[MAX];
-    int [] finalExam = new int[MAX];
-    double [] average1 = new double[MAX];
+    String [] studentName = new String[STUDENTLIMIT];
+    String [] parts = new String[STUDENTLIMIT];
+    String [] part1 = new String[STUDENTLIMIT];
+    String [] part2 = new String[STUDENTLIMIT];
+    String [] wid = new String[STUDENTLIMIT];
+    String [] letterGrade = new String[STUDENTLIMIT];
+    int [] exam1 = new int[STUDENTLIMIT];
+    int [] exam2 = new int[STUDENTLIMIT];
+    int [] exam3 = new int[STUDENTLIMIT];
+    int [] finalExam = new int[STUDENTLIMIT];
+    double [] average1 = new double[STUDENTLIMIT];
     double average2 = 0;
     double average3 = 0;
     int a = 0;
@@ -37,7 +40,7 @@ public class Proj4{
 
 
       while (true){
-        for (int i = 0; i < MAX; i++){
+        for (int i = 0; i < STUDENTLIMIT; i++){
           System.out.print("Please enter the name of Student " + (i+1) + ": ");
             studentName[i] = in.nextLine();
             parts = studentName[i].split(" ");
@@ -49,7 +52,7 @@ public class Proj4{
           System.out.print("Please enter the score for exam 1: ");
             exam1 [i]  = Integer.parseInt(in.nextLine());
             while(true){
-              if (exam1[i] > 50 || exam1[i]<0){
+              if (exam1[i] > EXAM50 || exam1[i]<0){
                 System.out.println("\t**Invalid Score... please enter 0-50 only...");
                 System.out.print("\tPlease re-enter score: ");
                   exam1 [i]  = Integer.parseInt(in.nextLine());
@@ -60,7 +63,7 @@ public class Proj4{
           System.out.print("Please enter the score for exam 2 :");
             exam2 [i]  = Integer.parseInt(in.nextLine());
             while(true){
-              if (exam2[i] > 50 || exam2[i]<0){
+              if (exam2[i] > EXAM50|| exam2[i]<0){
                 System.out.println("\t**Invalid Score... please enter 0-50 only...");
                 System.out.print("\tPlease re-enter score: ");
                   exam2 [i]  = Integer.parseInt(in.nextLine());
@@ -71,7 +74,7 @@ public class Proj4{
           System.out.print("Please enter the score for exam 3: ");
             exam3 [i]  = Integer.parseInt(in.nextLine());
             while(true){
-              if (exam3[i] > 50 || exam3[i]<0){
+              if (exam3[i] > EXAM50 || exam3[i]<0){
                 System.out.println("\t**Invalid Score... please enter 0-50 only...");
                 System.out.print("\tPlease re-enter score: ");
                   exam3 [i]  = Integer.parseInt(in.nextLine());
@@ -82,7 +85,7 @@ public class Proj4{
           System.out.print("Please enter the score for the final exam: ");
             finalExam [i]  = Integer.parseInt(in.nextLine());
             while(true){
-              if (finalExam[i] > 100 || finalExam[i]<0){
+              if (finalExam[i] > EXAM100 || finalExam[i]<0){
                 System.out.println("\t**Invalid Score... please enter 0-100 only...");
                 System.out.print("\tPlease re-enter score: ");
                   finalExam [i]  = Integer.parseInt(in.nextLine());
@@ -105,7 +108,7 @@ break;
 System.out.println("***Class Results***");
 
 for (int i = 0; i < count; i++){
-  average1[i] = ((exam1[i]+exam2[i]+exam3[i]+finalExam[i])/250.0)*100;
+  average1[i] = ((exam1[i]+exam2[i]+exam3[i]+finalExam[i])/(double)250)*100;
   if (average1[i] <= 100.0 && average1[i]>=90.0){
     letterGrade[i] = "A";
     a++;
